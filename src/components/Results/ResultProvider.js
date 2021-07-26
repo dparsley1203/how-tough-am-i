@@ -53,5 +53,5 @@ export const ResultProvider = (props) => {
         }}>
             {props.children}
         </AnimalContext.Provider>
-
+    )
 }
