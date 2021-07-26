@@ -4,7 +4,7 @@ import React from "react";
 export const Home = () => (
     <>
     <body>
-        <h2>How Tough Am I?</h2>
+        <h2>Daily Notes</h2>
         
 
         <section>
