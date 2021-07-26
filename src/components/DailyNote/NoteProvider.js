@@ -7,12 +7,49 @@ export const NoteProvider = (props) => {
 
     const [notes, setNotes] = useState([])
 
+    const getNotes = () => {
+        return fetch("http://localhost:8088/dailynotes?_expand=user")
+        .then(res => res.json())
+        .then(setNotes)
+    }
 
+    const addNote = (noteObj) => {
+        return fetch("http://localhost:8088/dailynotes", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(noteObj)
+        })
+        .then(getNotes)
+    }
 
+    const getNoteById = (id) => {
+        return fetch(`http://localhost:8088/dailynotes/${id}?_expand=user`)
+        .then(res => res.json())
+    }
+
+    const deleteNote = noteId => {
+        return fetch(`http://localhost:8088/dailynotes/${noteId}`, {
+            method: "DELETE"
+        })
+        .then(getNotes)
+    }
+
+    const updateNote = noteObj => {
+        return fetch(`http://localhost:8088/animals/${noteObj.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(noteObj)
+        })
+          .then(getNotes)
+      }
 
     return (
         <AnimalContext.Provider value={{
-            
+            notes, getNotes, addNote, getNoteById, deleteNote, updateNote
         }}>
             {props.children}
         </AnimalContext.Provider>
