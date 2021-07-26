@@ -48,10 +48,10 @@ export const NoteProvider = (props) => {
       }
 
     return (
-        <AnimalContext.Provider value={{
+        <NoteContext.Provider value={{
             notes, getNotes, addNote, getNoteById, deleteNote, updateNote
         }}>
             {props.children}
-        </AnimalContext.Provider>
+        </NoteContext.Provider>
     )
 }
