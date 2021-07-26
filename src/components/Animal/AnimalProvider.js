@@ -1,5 +1,4 @@
-import { createContext } from "istanbul-lib-report"
-import React, { createContext } from "react"
+import React, { createContext, useState } from "react"
 
 export const AnimalContext = createContext()
 

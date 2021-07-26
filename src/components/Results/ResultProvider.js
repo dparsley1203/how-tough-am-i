@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 
 export const ResultContext = createContext()
@@ -48,10 +48,10 @@ export const ResultProvider = (props) => {
       }
 
     return (
-        <AnimalContext.Provider value={{
+        <ResultContext.Provider value={{
            results, getResults, addResult, getResultsById, deleteResult, updateResult
         }}>
             {props.children}
-        </AnimalContext.Provider>
+        </ResultContext.Provider>
     )
 }
