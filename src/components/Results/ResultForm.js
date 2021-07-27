@@ -32,11 +32,11 @@ export const ResultForm = () => {
 
         const newResult = ({
             userId: userId,
-            userWeight: result.userWeight,
-            benchPress: result.benchPress,
-            squat: result.squat,
-            deadLift: result.deadLift,
-            powerClean: result.powerClean,
+            userWeight: parseInt(result.userWeight),
+            benchPress: parseInt(result.benchPress),
+            squat: parseInt(result.squat),
+            deadLift: parseInt(result.deadLift),
+            powerClean: parseInt(result.powerClean),
             timeStamp: Date.now()
         })
         addResult(newResult)
@@ -56,8 +56,35 @@ export const ResultForm = () => {
                     <label htmlFor="weight">User Weight</label>
                     <input type="text" id="userWeight" required autoFocus className="form-control" placeholder="User Weight" value={result.userWeight} onChange={formInputValue}></input>
                 </div>
-
             </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="benchPress">Bench Press</label>
+                    <input type="text" id="benchPress" required autoFocus className="form-control" placeholder="Bench Press" value={result.benchPress} onChange={formInputValue}></input>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="benchPress">Squat</label>
+                    <input type="text" id="squat" required autoFocus className="form-control" placeholder="Bench Press" value={result.squat} onChange={formInputValue}></input>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="benchPress">Dead Lift</label>
+                    <input type="text" id="deadLift" required autoFocus className="form-control" placeholder="Dead Lift" value={result.deadLift} onChange={formInputValue}></input>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="benchPress">Power Clean</label>
+                    <input type="text" id="powerClean" required autoFocus className="form-control" placeholder="Power Clean" value={result.powerClean} onChange={formInputValue}></input>
+                </div>
+            </fieldset>
+            <button className="addButton" onClick={saveResultClick}>
+                Add New Lifts
+            </button>
+
 
 
 
