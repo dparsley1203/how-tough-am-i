@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from "react"
 import { ResultContext } from "./ResultProvider"
 import { ResultCard } from "./ResultCard"
+import { useHistory } from "react-router"
 
 
 export const ResultList = () => {
 
     const { results, getResults } = useContext(ResultContext)
+    const history = useHistory()
 
     useEffect(() => {
         getResults()
@@ -14,10 +16,13 @@ export const ResultList = () => {
     return (
         <div>
             <h2>My Results Page</h2>
-
+            <button className="addButton" onClick={()=>{history.push("/results/create")}}>Add New Max Rep</button>
             <div className="result">
                 {
-                    results.map(result => {
+                    results.filter((result) => {
+                        return parseInt(localStorage.getItem("tough_customer")) === result.userId
+                    }).map(result => {
+
                         return <ResultCard key={result.id} result={result} />
                     })
                 }

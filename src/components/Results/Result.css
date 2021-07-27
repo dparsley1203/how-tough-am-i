@@ -1,4 +1,47 @@
-table, th, td {
-    border: 1px solid black;
+table.GeneratedTable {
+    width: 25%;
+    background-color: #ffffff;
     border-collapse: collapse;
+    border-width: 2px;
+    border-color: #808589;
+    border-style: solid;
+    color: #000000;
+    margin: 2em;
+    float: left;
+  }
+  
+  table.GeneratedTable td, table.GeneratedTable th {
+    border-width: 2px;
+    border-color: #808589;
+    border-style: solid;
+    padding: 3px;
+  }
+  
+  table.GeneratedTable thead {
+    background-color: #1378fb;
+  }
+
+  .total {
+      background-color: yellow;
+  }
+
+  .myButton {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    width: 50%;
+  }
+
+  .addButton {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
   }
