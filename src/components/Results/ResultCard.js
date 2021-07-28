@@ -55,7 +55,9 @@ export const ResultCard = ({ result }) => {
                         <td>{calulcated}</td>
                         </tr>
                     </tbody>
-                    <button className="myButton">Edit</button>
+                    <button onClick={() => {
+                        history.push(`/results/edit/${result.id}`)
+                    }} className="myButton">Edit</button>
                     <button onClick={handleDelete} className="myButton">Delete</button>          
                 </table>
             </div>

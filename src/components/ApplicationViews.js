@@ -20,6 +20,10 @@ export const ApplicationViews = () => {
                     <Route exact path="/results/create">
                         <ResultForm />
                     </Route>
+
+                    <Route exact path="/results/edit/:resultId(\d+)">
+                        <ResultForm />
+                    </Route>
             </ResultProvider>
 
             <Route>

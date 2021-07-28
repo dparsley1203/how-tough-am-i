@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import { ResultContext } from "./ResultProvider"
 
 
 
 export const ResultForm = () => {
-    const { addResult } = useContext(ResultContext)
+    const { addResult, getResultsById, updateResult } = useContext(ResultContext)
 
     const [result, setResult] = useState({
         userId: 0,
@@ -18,6 +18,8 @@ export const ResultForm = () => {
     })
 
     const history = useHistory()
+    const {resultId} = useParams()
+    const [isLoading, setIsLoading] = useState(true)
 
     const formInputValue = (event) => {
         const newResult = {...result}
@@ -28,8 +30,24 @@ export const ResultForm = () => {
     const saveResultClick = (event) => {
         event.preventDefault()
 
-        const userId = parseInt(localStorage.getItem("tough_customer"))
+        setIsLoading(true)
+        if (resultId) {
+            const userId = parseInt(localStorage.getItem("tough_customer"))
+            const editResult = ({
+                id: result.id,
+                userId: userId,
+                userWeight: parseInt(result.userWeight),
+                benchPress: parseInt(result.benchPress),
+                squat: parseInt(result.squat),
+                deadLift: parseInt(result.deadLift),
+                powerClean: parseInt(result.powerClean),
+                timeStamp: Date.now()
+            })
+            updateResult(editResult)
+            .then(() => history.push("/results"))
+        }
 
+        const userId = parseInt(localStorage.getItem("tough_customer"))
         const newResult = ({
             userId: userId,
             userWeight: parseInt(result.userWeight),
@@ -44,7 +62,15 @@ export const ResultForm = () => {
     }
 
     useEffect(() => {
-        // getResults()
+        if(resultId) {
+            getResultsById(resultId)
+            .then(result => {
+                setResult(result)
+                setIsLoading(false)
+            })
+        } else {
+            setIsLoading(false)
+        }
     }, [])
 
     return (
@@ -54,41 +80,44 @@ export const ResultForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="weight">User Weight</label>
-                    <input type="text" id="userWeight" required autoFocus className="form-control" placeholder="User Weight" value={result.userWeight} onChange={formInputValue}></input>
+                    <input type="text" id="userWeight" required autoFocus className="form-control" 
+                    placeholder="User Weight" value={result.userWeight} onChange={formInputValue}>
+                    </input>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="benchPress">Bench Press</label>
-                    <input type="text" id="benchPress" required autoFocus className="form-control" placeholder="Bench Press" value={result.benchPress} onChange={formInputValue}></input>
+                    <input type="text" id="benchPress" required autoFocus className="form-control" 
+                    placeholder="Bench Press" value={result.benchPress} onChange={formInputValue}></input>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="benchPress">Squat</label>
-                    <input type="text" id="squat" required autoFocus className="form-control" placeholder="Bench Press" value={result.squat} onChange={formInputValue}></input>
+                    <input type="text" id="squat" required autoFocus className="form-control" 
+                    placeholder="Bench Press" value={result.squat} onChange={formInputValue}></input>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="benchPress">Dead Lift</label>
-                    <input type="text" id="deadLift" required autoFocus className="form-control" placeholder="Dead Lift" value={result.deadLift} onChange={formInputValue}></input>
+                    <input type="text" id="deadLift" required autoFocus className="form-control" 
+                    placeholder="Dead Lift" value={result.deadLift} onChange={formInputValue}></input>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="benchPress">Power Clean</label>
-                    <input type="text" id="powerClean" required autoFocus className="form-control" placeholder="Power Clean" value={result.powerClean} onChange={formInputValue}></input>
+                    <input type="text" id="powerClean" required autoFocus className="form-control" 
+                    placeholder="Power Clean" value={result.powerClean} onChange={formInputValue}></input>
                 </div>
             </fieldset>
-            <button className="addButton" onClick={saveResultClick}>
-                Add New Lifts
+            <button className="addButton"
+            disabled={isLoading}
+            onClick={saveResultClick}>
+                {resultId ? "Add New Lifts" : "Save Lift"}
             </button>
-
-
-
-
-
         </form>
     )
 }
