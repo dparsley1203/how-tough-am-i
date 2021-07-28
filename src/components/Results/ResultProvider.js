@@ -25,7 +25,7 @@ export const ResultProvider = (props) => {
     }
 
     const getResultsById = (id) => {
-        return fetch(`http://localhost:8088/${id}results?_expand=user`)
+        return fetch(`http://localhost:8088/results/${id}?_expand=user`)
         .then(res => res.json())
     }
 

@@ -5,7 +5,7 @@ import { ResultContext } from "./ResultProvider"
 
 
 export const ResultForm = () => {
-    const { addResult, getResultsById, updateResult } = useContext(ResultContext)
+    const { addResult, getResultsById, updateResult, getResults } = useContext(ResultContext)
 
     const [result, setResult] = useState({
         userId: 0,
@@ -29,48 +29,51 @@ export const ResultForm = () => {
 
     const saveResultClick = (event) => {
         event.preventDefault()
-
+        
         setIsLoading(true)
         if (resultId) {
             const userId = parseInt(localStorage.getItem("tough_customer"))
-            const editResult = ({
-                id: result.id,
-                userId: userId,
-                userWeight: parseInt(result.userWeight),
-                benchPress: parseInt(result.benchPress),
-                squat: parseInt(result.squat),
-                deadLift: parseInt(result.deadLift),
-                powerClean: parseInt(result.powerClean),
-                timeStamp: Date.now()
+                updateResult({
+                    id: parseInt(result.id),
+                    userId: userId,
+                    userWeight: parseInt(result.userWeight),
+                    benchPress: parseInt(result.benchPress),
+                    squat: parseInt(result.squat),
+                    deadLift: parseInt(result.deadLift),
+                    powerClean: parseInt(result.powerClean),
+                    timeStamp: Date.now()
             })
-            updateResult(editResult)
             .then(() => history.push("/results"))
-        }
 
-        const userId = parseInt(localStorage.getItem("tough_customer"))
-        const newResult = ({
-            userId: userId,
-            userWeight: parseInt(result.userWeight),
-            benchPress: parseInt(result.benchPress),
-            squat: parseInt(result.squat),
-            deadLift: parseInt(result.deadLift),
-            powerClean: parseInt(result.powerClean),
-            timeStamp: Date.now()
-        })
-        addResult(newResult)
-        .then(()=> history.push("/results"))
+        } else {
+
+            const userId = parseInt(localStorage.getItem("tough_customer"))
+                addResult({
+                    userId: userId,
+                    userWeight: parseInt(result.userWeight),
+                    benchPress: parseInt(result.benchPress),
+                    squat: parseInt(result.squat),
+                    deadLift: parseInt(result.deadLift),
+                    powerClean: parseInt(result.powerClean),
+                    timeStamp: Date.now()
+            })
+            .then(()=> history.push("/results"))
+            }
     }
 
     useEffect(() => {
-        if(resultId) {
+        getResults()
+        .then(() => {
+            if(resultId) {
             getResultsById(resultId)
             .then(result => {
                 setResult(result)
                 setIsLoading(false)
             })
-        } else {
-            setIsLoading(false)
-        }
+            } else {
+                setIsLoading(false)
+            }
+        })
     }, [])
 
     return (
@@ -116,7 +119,7 @@ export const ResultForm = () => {
             <button className="addButton"
             disabled={isLoading}
             onClick={saveResultClick}>
-                {resultId ? "Add New Lifts" : "Save Lift"}
+                {resultId ? "Save Edit Lift" : "Add New Lifts" }
             </button>
         </form>
     )
