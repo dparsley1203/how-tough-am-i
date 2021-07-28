@@ -8,13 +8,13 @@ export const ResultProvider = (props) => {
     const [results, setResults] = useState([])
 
     const getResults = () => {
-        return fetch("http://localhost:8088/maxrep?_expand=user")
+        return fetch("http://localhost:8088/results?_expand=user")
         .then(res => res.json())
         .then(setResults)
     }
 
     const addResult = (resultObj) => {
-        return fetch("http://localhost:8088/maxrep", {
+        return fetch("http://localhost:8088/results", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -25,19 +25,19 @@ export const ResultProvider = (props) => {
     }
 
     const getResultsById = (id) => {
-        return fetch(`http://localhost:8088/${id}maxrep?_expand=user`)
+        return fetch(`http://localhost:8088/results/${id}?_expand=user`)
         .then(res => res.json())
     }
 
     const deleteResult = resultId => {
-        return fetch(`http://localhost:8088/maxrep/${resultId}`, {
+        return fetch(`http://localhost:8088/results/${resultId}`, {
           method: "DELETE"
         })
           .then(getResults)
     }
 
     const updateResult = resultObj => {
-        return fetch(`http://localhost:8088/maxrep/${resultObj.id}`, {
+        return fetch(`http://localhost:8088/results/${resultObj.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"

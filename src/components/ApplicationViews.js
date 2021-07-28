@@ -1,6 +1,9 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
+import { ResultProvider } from "./Results/ResultProvider"
+import { ResultList } from "./Results/ResultList"
+import { ResultForm } from "./Results/ResultForm"
 
 export const ApplicationViews = () => {
     return (
@@ -9,9 +12,19 @@ export const ApplicationViews = () => {
                 <Home />
             </Route>
 
-            <Route>
-                {/* My Result path */}
-            </Route>
+            <ResultProvider>
+                    <Route exact path="/results">
+                        <ResultList />
+                    </Route>
+
+                    <Route exact path="/results/create">
+                        <ResultForm />
+                    </Route>
+
+                    <Route exact path="/results/edit/:resultId(\d+)">
+                        <ResultForm />
+                    </Route>
+            </ResultProvider>
 
             <Route>
                 {/* Compare route */}
