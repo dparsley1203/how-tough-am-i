@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { NoteContext } from "./NoteProvider"
 import { NoteCard } from "./NoteCard"
 import { useHistory } from "react-router-dom"
-
+import "./Note.css"
 
 export const NoteList = () => {
 
@@ -14,7 +14,7 @@ export const NoteList = () => {
 
     return (
         <div>
-            <div>Daily Notes</div>
+            <h2 className="title">Daily Notes</h2>
             <button className="addButton" onClick={()=>{history.push("/notes/create")}}>Add new Note</button>
             <div className="note">
                 {

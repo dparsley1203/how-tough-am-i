@@ -2,7 +2,7 @@
 
     background-color: #ddffdd;
     border-left: 6px solid #04AA6D;
-    margin: 15px 15px;
+    margin: 12px 12px;
     padding: 4px 12px;
     min-height: 3em;
       
@@ -12,4 +12,12 @@
     justify-content: flex-end;
     display: flex;
     float: right;
+}
+
+.addButton {
+    margin: 12px 12px 0px 12px;
+}
+
+.title {
+    margin-left: 12px;
 }

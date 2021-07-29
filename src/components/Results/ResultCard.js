@@ -32,27 +32,27 @@ export const ResultCard = ({ result }) => {
                     <tbody>
                         <tr>
                         <td>Body Weight</td>
-                        <td>{result.userWeight}</td>
+                        <td>{result.userWeight}<font size="1">lbs</font></td>
                         </tr>
                         <tr>
                         <td>Bench Press</td>
-                        <td>{result.benchPress}</td>
+                        <td>{result.benchPress}<font size="1">lbs</font></td>
                         </tr>
                         <tr>
                         <td>Squat</td>
-                        <td>{result.squat}</td>
+                        <td>{result.squat}<font size="1">lbs</font></td>
                         </tr>
                         <tr>
                         <td>Deadlift</td>
-                        <td>{result.deadLift}</td>
+                        <td>{result.deadLift}<font size="1">lbs</font></td>
                         </tr>
                         <tr>
                         <td>Power Clean</td>
-                        <td>{result.powerClean}</td>
+                        <td>{result.powerClean}<font size="1">lbs</font></td>
                         </tr>
                         <tr className="total">
                         <td>Total Result</td>
-                        <td>{calulcated}</td>
+                        <td>{calulcated}<font size="1">lbs</font></td>
                         </tr>
                     </tbody>
                     <button onClick={() => {
