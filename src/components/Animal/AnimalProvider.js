@@ -13,16 +13,16 @@ export const AnimalProvider = (props) => {
     }
 
     // Part of stretch goal to add ability for user created animals
-    // const addAnimal = (animalObj) => {
-    //     return fetch("http://localhost:8088/animals", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(animalObj)
-    //     })
-    //     .then(getAnimals)
-    // }
+    const addAnimal = (animalObj) => {
+        return fetch("http://localhost:8088/animals", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(animalObj)
+        })
+        .then(getAnimals)
+    }
 
     const getAnimalById = (id) => {
         return fetch(`http://localhost:8088/animals/${id}`)

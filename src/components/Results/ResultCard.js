@@ -43,7 +43,7 @@ export const ResultCard = ({ result }) => {
                         <td>{result.squat}</td>
                         </tr>
                         <tr>
-                        <td>Deadligt</td>
+                        <td>Deadlift</td>
                         <td>{result.deadLift}</td>
                         </tr>
                         <tr>

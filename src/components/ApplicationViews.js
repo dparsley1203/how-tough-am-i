@@ -4,6 +4,9 @@ import { Home } from "./Home"
 import { ResultProvider } from "./Results/ResultProvider"
 import { ResultList } from "./Results/ResultList"
 import { ResultForm } from "./Results/ResultForm"
+import { AnimalProvider } from "./Animal/AnimalProvider"
+import { AnimalList } from "./Animal/AnimalList"
+import { AnimalDetail } from "./Animal/AnimalDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -26,10 +29,17 @@ export const ApplicationViews = () => {
                     </Route>
             </ResultProvider>
 
-            <Route>
-                {/* Compare route */}
-            </Route>
-
+            <AnimalProvider>
+            
+                <Route exact path="/animals">
+                    <AnimalList />
+                </Route>
+                <ResultProvider>
+                <Route exact path="/animals/detail/:animalId(\d+)">
+                    <AnimalDetail />
+                </Route>
+                </ResultProvider>
+            </AnimalProvider>
             <Route>
                 {/* Exercise route */}
             </Route>
