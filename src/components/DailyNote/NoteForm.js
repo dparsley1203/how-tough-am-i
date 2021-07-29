@@ -49,16 +49,18 @@ export const NoteForm = () => {
          }
 
     useEffect(() => {
+        getNotes()
+        .then(() => {
         if(noteId) {
             getNoteById(noteId)
             .then(note => {
                 setNote(note)
                 setIsLoading(false)
             })
-        } else {
-            setIsLoading(false)
+            } else {
+                setIsLoading(false)
         }
-
+        })
     }, [])
 
     return (
