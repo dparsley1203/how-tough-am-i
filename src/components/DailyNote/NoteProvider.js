@@ -37,7 +37,7 @@ export const NoteProvider = (props) => {
     }
 
     const updateNote = noteObj => {
-        return fetch(`http://localhost:8088/animals/${noteObj.id}`, {
+        return fetch(`http://localhost:8088/dailynotes/${noteObj.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"

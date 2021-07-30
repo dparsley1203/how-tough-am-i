@@ -29,8 +29,7 @@ export const AnimalDetail = () => {
     } else {
         winnerLoser = `Looks like I'm stonger than a ${animal.name}`
     }
-
-        //may need to create a another var and map over results.  Currently displaying all squats  
+  
     
     useEffect(() => {
         getAnimalById(animalId)
@@ -45,12 +44,8 @@ export const AnimalDetail = () => {
             <h3 className="animal__name">Name: {animal.name}</h3>
             <div className="animal__breed">Weight: {animal.animalWeight}lbs</div>
             <div className="animal__location">Lifting Strength: {animal.animalStrength}lbs</div>
-            <div className="animal__location">The 
-            
-            {animal.name}'s' {animalPFP.toFixed(2)} vs Yours {Math.max(...getMorePrecise)}</div>
+            <div className="animal__location">The {animal.name}'s' {animalPFP.toFixed(2)} vs Yours {Math.max(...getMorePrecise)}</div>
             <div>{winnerLoser}</div>
-            
-            
         </section>
     )
 

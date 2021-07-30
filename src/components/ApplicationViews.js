@@ -7,13 +7,26 @@ import { ResultForm } from "./Results/ResultForm"
 import { AnimalProvider } from "./Animal/AnimalProvider"
 import { AnimalList } from "./Animal/AnimalList"
 import { AnimalDetail } from "./Animal/AnimalDetail"
+import { NoteList } from "./DailyNote/NoteList"
+import { NoteProvider } from "./DailyNote/NoteProvider"
+import { NoteForm } from "./DailyNote/NoteForm"
 
 export const ApplicationViews = () => {
     return (
         <>
-            <Route exact path="/">
-                <Home />
-            </Route>
+            <NoteProvider>
+                <Route exact path="/">
+                    <NoteList />
+                </Route>
+
+                <Route exact path="/notes/create">
+                    <NoteForm />
+                </Route>
+
+                <Route exact path="/notes/edit/:noteId(\d+)">
+                        <NoteForm />
+                    </Route>
+            </NoteProvider>
 
             <ResultProvider>
                     <Route exact path="/results">
