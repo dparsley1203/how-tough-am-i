@@ -12,6 +12,8 @@ import { NoteProvider } from "./DailyNote/NoteProvider"
 import { NoteForm } from "./DailyNote/NoteForm"
 import { ExerciseList } from "./Exercises/ExerciseList"
 import { ExerciseProvider } from "./Exercises/ExerciseProvider"
+import { ExerciseHomePage } from "./Exercises/ExerciseHomePage"
+import { ExerciseDetail } from "./Exercises/ExerciseDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -59,6 +61,10 @@ export const ApplicationViews = () => {
             <ExerciseProvider>
                 <Route exact path="/exercises">
                     <ExerciseList />
+                </Route>
+
+                <Route exact path="/exercises/upperbody">
+                    <ExerciseDetail />
                 </Route>
             </ExerciseProvider>
         </>

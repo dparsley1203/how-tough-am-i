@@ -17,7 +17,7 @@ export const AnimalDetail = () => {
        result.userId ===  parseInt(localStorage.getItem("tough_customer")))
         
     const getMorePrecise = currentUserResults.map((result) => { 
-       const totalWeight=  result.benchPress + result.squat + result.deadLift + result.powerClean
+       const totalWeight = result.benchPress + result.squat + result.deadLift + result.powerClean
        const PFP = totalWeight / result.userWeight
        return PFP.toFixed(2)
     })
