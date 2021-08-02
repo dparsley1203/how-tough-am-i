@@ -5,10 +5,10 @@ export const ExerciseContext = createContext()
 
 export const ExerciseProvider = (props) => {
 
-    const [exercises, setExercises] =useState([])
+    const [exercises, setExercises] = useState([])
 
     const getExercises = () => {
-        return fetch("http://localhost:8088/exercises")
+        return fetch("http://localhost:8088/exercises?_expand=exerciseType")
         .then(res => res.json())
         .then(setExercises)
     }

@@ -10,6 +10,14 @@ import { AnimalDetail } from "./Animal/AnimalDetail"
 import { NoteList } from "./DailyNote/NoteList"
 import { NoteProvider } from "./DailyNote/NoteProvider"
 import { NoteForm } from "./DailyNote/NoteForm"
+import { ExerciseList } from "./Exercises/ExerciseList"
+import { ExerciseProvider } from "./Exercises/ExerciseProvider"
+import { ExerciseHomePage } from "./Exercises/ExerciseHomePage"
+import { ExerciseDetail } from "./Exercises/ExerciseDetail"
+import { ExerciseCoreDetail } from "./Exercises/ExerciseCoreDetail"
+import { ExerciseLowerBodyDetail } from "./Exercises/ExerciseLowerBodyDetail"
+import maxrepchart from "./Pictures/maxrepchart.jpg"
+import chart from "./Pictures/chart.png"
 
 export const ApplicationViews = () => {
     return (
@@ -42,20 +50,39 @@ export const ApplicationViews = () => {
                     </Route>
             </ResultProvider>
 
-            <AnimalProvider>
-            
+            <AnimalProvider>      
                 <Route exact path="/animals">
                     <AnimalList />
                 </Route>
+
                 <ResultProvider>
-                <Route exact path="/animals/detail/:animalId(\d+)">
-                    <AnimalDetail />
-                </Route>
+                    <Route exact path="/animals/detail/:animalId(\d+)">
+                        <AnimalDetail />
+                    </Route>
                 </ResultProvider>
             </AnimalProvider>
-            <Route>
-                {/* Exercise route */}
-            </Route>
+            
+            <ExerciseProvider>
+                <Route exact path="/exercises">
+                    <ExerciseList />
+                </Route>
+
+                <Route exact path="/exercises/upperbody">
+                    <ExerciseDetail />
+                </Route>
+
+                <Route exact path="/exercises/lowerbody">
+                    <ExerciseLowerBodyDetail />
+                </Route>
+
+                <Route exact path="/exercises/core">
+                    <ExerciseCoreDetail />
+                </Route>
+
+                <Route exact path="/exercises/maxrepchart">
+                    <img src={chart} width="65%" height="65%"/>
+                </Route>
+            </ExerciseProvider>
         </>
     )
 }
