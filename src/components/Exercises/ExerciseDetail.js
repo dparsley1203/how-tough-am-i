@@ -8,7 +8,7 @@ export const ExerciseDetail = () => {
 
     const { getExerciseById, exercises, getExercises } = useContext(ExerciseContext)
     const [ exercise, setExercise ] = useState({})
-    const { exerciseId } = useParams()
+    // const { exerciseId } = useParams()
 
     useEffect(() => {
         getExercises()
