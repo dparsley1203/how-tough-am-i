@@ -4,8 +4,6 @@ import { ResultContext } from "../Results/ResultProvider"
 import { UserContext } from "../Users/UserProvier"
 import { AnimalContext } from "./AnimalProvider"
 import Swal from 'sweetalert2'
-import balloons from "../Pictures/balloons.jpg"
-
 
 
 export const AnimalDetail = () => {
@@ -20,41 +18,46 @@ export const AnimalDetail = () => {
        result.userId ===  parseInt(localStorage.getItem("tough_customer")))
         
     const getMorePrecise = currentUserResults.map((result) => { 
-       const totalWeight = result.benchPress + result.squat + result.deadLift + result.powerClean
-       const PFP = totalWeight / result.userWeight
+       const totalWeight = parseInt(result.benchPress + result.squat + result.deadLift + result.powerClean)
+       const PFP = totalWeight / parseInt(result.userWeight)
        return PFP.toFixed(2)
     })
+    //removes one NaN but if mutliple exist it will not
+    // const removeNan = getMorePrecise.indexOf("NaN")
+    // if (removeNan > -1) {
+        //     getMorePrecise.splice(removeNan, 1)
+        // }
+
+        const removeNan = getMorePrecise.filter(nan => nan !== "NaN")
+        console.log(removeNan)
+ 
 
     const animalPFP = animal.animalStrength / animal.animalWeight
     let winnerLoser
-    if (animalPFP > Math.max(...getMorePrecise)) {
+    if (animalPFP > Math.max(...removeNan)) {
 
+        winnerLoser = `Bummer.  I didn't hardly beat the ${animal.name}`
         //update else statement and find out why it loads twice
-        Swal.fire({
-            title: `Not hardly as stong as ${animal.name}`,
-            text: 'Modal with a custom image.',
-            imageUrl: 'https://media1.tenor.com/images/31d69d9f660be148d7d8104335f0a0c1/tenor.gif',
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: 'Custom image',
-          })
+        // Swal.fire({
+        //     title: `Bummer.  I didn't hardly beat the ${animal.name}`,
+        //     text: 'Modal with a custom image.',
+        //     imageUrl: 'https://media1.tenor.com/images/31d69d9f660be148d7d8104335f0a0c1/tenor.gif',
+        //     imageWidth: 400,
+        //     imageHeight: 200,
+        //     imageAlt: 'Custom image',
+        //   })
 
     } else {
-        // winnerLoser = `Looks like I'm stonger than a ${animal.name}`
-        Swal.fire({
-            title: `Looks like I'm stonger than a ${animal.name}`,
-            width: 600,
-            padding: '3em',
-            background: `#fff url(https://raw.githubusercontent.com/fufu70/react-confetti-canvas/HEAD/assets/canvas.gif)`,
-            
-        
-            backdrop: `
-            rgba(0,0,123,0.4)
-            url()
-            left top
-            no-repeat
-            `
-        })
+         winnerLoser = `WoW!! this ${animal.name} has nothing on me!`
+
+        // Swal.fire({
+        //     title: `WoW!! this ${animal.name} has nothing on me!`,
+        //     text: 'Modal with a custom image.',
+        //     imageUrl: 'https://raw.githubusercontent.com/fufu70/react-confetti-canvas/HEAD/assets/canvas.gif',
+        //     imageWidth: 400,
+        //     imageHeight: 200,
+        //     imageAlt: 'Custom image',
+        //   })
     }
   
       
@@ -71,7 +74,7 @@ export const AnimalDetail = () => {
             <h3 className="animal__name">Name: {animal.name}</h3>
             <div className="animal__breed">Weight: {animal.animalWeight}lbs</div>
             <div className="animal__location">Lifting Strength: {animal.animalStrength}lbs</div>
-            <div className="animal__location">The {animal.name}'s' {animalPFP.toFixed(2)} vs Yours {Math.max(...getMorePrecise)}</div>
+            <div className="animal__location">The {animal.name}'s' {animalPFP.toFixed(2)} vs Yours {Math.max(...removeNan)}</div>
             <div>{winnerLoser}</div>
         </section>
     )
