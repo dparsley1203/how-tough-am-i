@@ -80,7 +80,7 @@ export const ApplicationViews = () => {
                 </Route>
 
                 <Route exact path="/exercises/maxrepchart">
-                    <img src={chart} width="65%" height="65%"/>
+                    <img src={chart} width="55%" height="55%"/>
                 </Route>
             </ExerciseProvider>
         </>

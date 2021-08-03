@@ -30,6 +30,7 @@ export const ResultForm = () => {
     const saveResultClick = (event) => {
         event.preventDefault()
         
+
         setIsLoading(true)
         if (resultId) {
             const userId = parseInt(localStorage.getItem("tough_customer"))

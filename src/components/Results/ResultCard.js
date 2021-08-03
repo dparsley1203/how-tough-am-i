@@ -4,13 +4,21 @@ import { useHistory } from "react-router"
 import { ResultContext } from "./ResultProvider"
 
 export const ResultCard = ({ result }) => {
-
-    const combinedResults = result.benchPress + result.squat + result.deadLift + result.powerClean
-    const PFP = combinedResults / result.userWeight
-    const calulcated = PFP.toFixed(2)
-
+    
     const history = useHistory()
     const { deleteResult } = useContext(ResultContext)
+
+    const combinedResults = result.benchPress + result.squat + result.deadLift + result.powerClean
+    let PFP = combinedResults / result.userWeight
+    let calculated = PFP.toFixed(2)
+   
+    if (calculated === "NaN") {
+        calculated = 0
+    }
+
+ 
+    
+
 
     const handleDelete = () => {
         deleteResult(result.id)
@@ -18,6 +26,7 @@ export const ResultCard = ({ result }) => {
             history.push("/results")
         })
     }
+
 
     return (
         <section>
@@ -52,7 +61,7 @@ export const ResultCard = ({ result }) => {
                         </tr>
                         <tr className="total">
                         <td>Total Result</td>
-                        <td>{calulcated}<font size="1">lbs</font></td>
+                        <td>{calculated}<font size="1">lbs</font></td>
                         </tr>
                     </tbody>
                     <button onClick={() => {

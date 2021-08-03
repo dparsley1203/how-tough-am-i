@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router"
 import { ExerciseContext } from "./ExerciseProvider"
 import { ExerciseCard } from "./ExerciseCard"
 
@@ -30,7 +29,7 @@ export const ExerciseDetail = () => {
     return (
         <>
         <section>
-            <div>hello</div>
+            <div>The exercise tips below will focus on building upper body strength</div>
             <div>
                 {
                     
@@ -40,12 +39,7 @@ export const ExerciseDetail = () => {
                         return <ExerciseCard key={exercise.id} exercise={exercise} />
                     })
                 }   
-                
-               
-                
-                
                 </div>
-            {/* <div>{filterExercises.description}</div> */}
         </section>
         </>
     )
