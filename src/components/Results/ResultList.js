@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { ResultContext } from "./ResultProvider"
 import { ResultCard } from "./ResultCard"
 import { useHistory } from "react-router"
+import  "./Result.css"
 
 
 export const ResultList = () => {

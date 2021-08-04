@@ -45,3 +45,13 @@ table.GeneratedTable {
     display: inline-block;
     font-size: 12px;
   }
+
+body {
+  /* background-image: url(../Pictures/math1.png); */
+  background-color: rgb(149, 150, 153);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+

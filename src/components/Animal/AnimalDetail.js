@@ -36,28 +36,28 @@ export const AnimalDetail = () => {
     let winnerLoser
     if (animalPFP > Math.max(...removeNan)) {
 
-        winnerLoser = `Bummer.  I didn't hardly beat the ${animal.name}`
+        // winnerLoser = `Bummer.  I didn't hardly beat the ${animal.name}`
         //update else statement and find out why it loads twice
-        // Swal.fire({
-        //     title: `Bummer.  I didn't hardly beat the ${animal.name}`,
-        //     text: 'Modal with a custom image.',
-        //     imageUrl: 'https://media1.tenor.com/images/31d69d9f660be148d7d8104335f0a0c1/tenor.gif',
-        //     imageWidth: 400,
-        //     imageHeight: 200,
-        //     imageAlt: 'Custom image',
-        //   })
+        Swal.fire({
+            title: `Bummer.  I didn't hardly beat the ${animal.name}`,
+            text: 'Modal with a custom image.',
+            imageUrl: 'https://media1.tenor.com/images/31d69d9f660be148d7d8104335f0a0c1/tenor.gif',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
 
     } else {
-         winnerLoser = `WoW!! this ${animal.name} has nothing on me!`
+        //  winnerLoser = `WoW!! this ${animal.name} has nothing on me!`
 
-        // Swal.fire({
-        //     title: `WoW!! this ${animal.name} has nothing on me!`,
-        //     text: 'Modal with a custom image.',
-        //     imageUrl: 'https://raw.githubusercontent.com/fufu70/react-confetti-canvas/HEAD/assets/canvas.gif',
-        //     imageWidth: 400,
-        //     imageHeight: 200,
-        //     imageAlt: 'Custom image',
-        //   })
+        Swal.fire({
+            title: `WoW!! this ${animal.name} has nothing on me!`,
+            text: 'Modal with a custom image.',
+            imageUrl: 'https://raw.githubusercontent.com/fufu70/react-confetti-canvas/HEAD/assets/canvas.gif',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
     }
   
       

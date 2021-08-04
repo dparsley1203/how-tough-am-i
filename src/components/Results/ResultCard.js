@@ -11,14 +11,18 @@ export const ResultCard = ({ result }) => {
     const combinedResults = result.benchPress + result.squat + result.deadLift + result.powerClean
     let PFP = combinedResults / result.userWeight
     let calculated = PFP.toFixed(2)
-   
+
+    const timestamp = result.timeStamp
+    const date = new Date(timestamp)
+    console.log(date)
+    const d = date.toDateString()
+    console.log(d)
+
     if (calculated === "NaN") {
         calculated = 0
     }
 
  
-    
-
 
     const handleDelete = () => {
         deleteResult(result.id)
@@ -34,7 +38,7 @@ export const ResultCard = ({ result }) => {
                 <table class="GeneratedTable">
                     <thead>
                         <tr>
-                        <th>Exercise</th>
+                        <th>Exercise On: {d}</th>
                         <th>weight</th>
                         </tr>
                     </thead>
@@ -60,7 +64,7 @@ export const ResultCard = ({ result }) => {
                         <td>{result.powerClean}<font size="1">lbs</font></td>
                         </tr>
                         <tr className="total">
-                        <td>Total Result</td>
+                        <td>Body Weight/Lifts</td>
                         <td>{calculated}<font size="1">lbs</font></td>
                         </tr>
                     </tbody>
