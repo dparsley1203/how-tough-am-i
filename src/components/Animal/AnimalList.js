@@ -18,7 +18,8 @@ export const AnimalList = () => {
     
     return (
         <div>
-            <h2>Click on an animal below to compare your strength</h2>
+            <h2>Click on an image below to compare your strength</h2>
+            <h6>Strength is calculated based on physical strength divided by body weight</h6>
             <div className="animal">
                 {
                     animals.map(animal => {

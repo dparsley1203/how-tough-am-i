@@ -20,7 +20,7 @@ export const AnimalCard = ({ animal }) => {
             <Link to={`/animals/detail/${animal.id}`}>
                 {/* <h2> {animal.name}</h2> */}
                 <div className="img">
-                    <img src={animal.image} height="300px" width="400px" />
+                    <img src={animal.image} height="250px" width="250px" />
                 </div>
             </Link>
 
