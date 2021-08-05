@@ -4,13 +4,25 @@ import { useHistory } from "react-router"
 import { ResultContext } from "./ResultProvider"
 
 export const ResultCard = ({ result }) => {
-
-    const combinedResults = result.benchPress + result.squat + result.deadLift + result.powerClean
-    const PFP = combinedResults / result.userWeight
-    const calulcated = PFP.toFixed(2)
-
+    
     const history = useHistory()
     const { deleteResult } = useContext(ResultContext)
+
+    const combinedResults = result.benchPress + result.squat + result.deadLift + result.powerClean
+    let PFP = combinedResults / result.userWeight
+    let calculated = PFP.toFixed(2)
+
+    const timestamp = result.timeStamp
+    const date = new Date(timestamp)
+    console.log(date)
+    const d = date.toDateString()
+    console.log(d)
+
+    if (calculated === "NaN") {
+        calculated = 0
+    }
+
+ 
 
     const handleDelete = () => {
         deleteResult(result.id)
@@ -19,13 +31,14 @@ export const ResultCard = ({ result }) => {
         })
     }
 
+
     return (
         <section>
             <div>
                 <table class="GeneratedTable">
                     <thead>
                         <tr>
-                        <th>Exercise</th>
+                        <th>Exercise On: {d}</th>
                         <th>weight</th>
                         </tr>
                     </thead>
@@ -51,8 +64,8 @@ export const ResultCard = ({ result }) => {
                         <td>{result.powerClean}<font size="1">lbs</font></td>
                         </tr>
                         <tr className="total">
-                        <td>Total Result</td>
-                        <td>{calulcated}<font size="1">lbs</font></td>
+                        <td>Body Weight/Lifts</td>
+                        <td>{calculated}<font size="1">lbs</font></td>
                         </tr>
                     </tbody>
                     <button onClick={() => {

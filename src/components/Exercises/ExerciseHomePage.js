@@ -1,30 +1,12 @@
-import React, { useContext, useEffect } from "react"
-import { Link, useHistory } from "react-router-dom"
-import { ExerciseContext } from "./ExerciseProvider"
-import { ExerciseCard } from "./ExerciseCard"
-import maxrepchart from "../Pictures/maxrepchart.jpg"
+import React from "react"
+import { Link } from "react-router-dom"
+import "./Exercise.css"
+
 
 
 export const ExerciseHomePage = () => {
 
-    const { exercises, getExercises } = useContext(ExerciseContext)
-    const history = useHistory()
-    //not needed
-    const filteredExercises = exercises.filter(exercise => {
-        return exercise.exerciseTypeId === exercise.exerciseType?.upperBody
-    })
-
-   
-    
-    
-    
-
-
-    useEffect(() => {
-        getExercises()
-
-    }, [])
-
+ 
     return (
         <>  
         <section className="exercise__homepage">

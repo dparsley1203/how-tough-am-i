@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { ResultContext } from "./ResultProvider"
 import { ResultCard } from "./ResultCard"
 import { useHistory } from "react-router"
+import  "./Result.css"
 
 
 export const ResultList = () => {
@@ -14,7 +15,7 @@ export const ResultList = () => {
     }, [])
 
     return (
-        <div>
+        <div className="results">
             <h2>My Results Page</h2>
             <button className="addButton" onClick={()=>{history.push("/results/create")}}>Add New Max Rep</button>
             <div className="result">

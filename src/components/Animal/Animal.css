@@ -1,0 +1,21 @@
+.animal {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2em;
+}
+
+.img img:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+}
+
+/* .animal__weight {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); 
+} */
+
+.animalList {
+    margin-left: 1em;
+}
