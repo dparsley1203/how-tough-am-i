@@ -16,7 +16,7 @@ export const ExerciseCoreDetail = () => {
     return (
         <>
         <section>
-            <div>hello</div><br></br>
+            <h3 className="exercise__title">Click on an image below to learn more about the exercise</h3><br></br>
             <div className="exercise">
                 {
                     

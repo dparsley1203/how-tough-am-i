@@ -19,7 +19,7 @@ export const ExerciseDetail = () => {
     return (
         <>
         <section>
-            <div>The exercise tips below will focus on building upper body strength</div><br></br>
+            <h3 className="exercise__title">Click on an image below to learn more about the exercise</h3><br></br>
             <div className="exercise">
                 {
                     
