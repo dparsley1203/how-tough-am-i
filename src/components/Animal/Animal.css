@@ -11,3 +11,11 @@
     transition: 1s ease;
 }
 
+/* .animal__weight {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); 
+} */
+
+.animalList {
+    margin-left: 1em;
+}

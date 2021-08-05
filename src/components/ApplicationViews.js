@@ -18,6 +18,7 @@ import { ExerciseCoreDetail } from "./Exercises/ExerciseCoreDetail"
 import { ExerciseLowerBodyDetail } from "./Exercises/ExerciseLowerBodyDetail"
 import maxrepchart from "./Pictures/maxrepchart.jpg"
 import chart from "./Pictures/chart.png"
+import { UserProvider } from "./Users/UserProvier"
 
 export const ApplicationViews = () => {
     return (
@@ -50,15 +51,17 @@ export const ApplicationViews = () => {
                     </Route>
             </ResultProvider>
 
-            <AnimalProvider>      
+            <AnimalProvider>
                 <Route exact path="/animals">
                     <AnimalList />
                 </Route>
 
                 <ResultProvider>
+                    <UserProvider>
                     <Route exact path="/animals/detail/:animalId(\d+)">
                         <AnimalDetail />
                     </Route>
+                    </UserProvider>
                 </ResultProvider>
             </AnimalProvider>
             

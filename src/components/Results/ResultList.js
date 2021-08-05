@@ -15,7 +15,7 @@ export const ResultList = () => {
     }, [])
 
     return (
-        <div>
+        <div className="results">
             <h2>My Results Page</h2>
             <button className="addButton" onClick={()=>{history.push("/results/create")}}>Add New Max Rep</button>
             <div className="result">
