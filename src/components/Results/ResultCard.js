@@ -35,7 +35,7 @@ export const ResultCard = ({ result }) => {
     return (
         <section>
             <div>
-                <table class="GeneratedTable">
+                <table class="styled-table">
                     <thead>
                         <tr>
                         <th>Exercise On: {d}</th>
@@ -63,7 +63,7 @@ export const ResultCard = ({ result }) => {
                         <td>Power Clean</td>
                         <td>{result.powerClean}<font size="1">lbs</font></td>
                         </tr>
-                        <tr className="total">
+                        <tr id="total">
                         <td>Body Weight/Lifts</td>
                         <td>{calculated}<font size="1">lbs</font></td>
                         </tr>

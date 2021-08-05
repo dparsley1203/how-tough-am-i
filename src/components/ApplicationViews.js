@@ -19,6 +19,9 @@ import { ExerciseLowerBodyDetail } from "./Exercises/ExerciseLowerBodyDetail"
 import maxrepchart from "./Pictures/maxrepchart.jpg"
 import chart from "./Pictures/chart.png"
 import { UserProvider } from "./Users/UserProvier"
+import { ExerciseUpperPictureDetail } from "./Exercises/ExerciseUpperPictureDetail"
+import { ExerciseLowerPictureDetail } from "./Exercises/ExerciseLowerPictureDetail"
+import { ExerciseCorePictureDetail } from "./Exercises/ExerciseCorePictureDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -74,12 +77,24 @@ export const ApplicationViews = () => {
                     <ExerciseDetail />
                 </Route>
 
+                <Route exact path="/exercises/upperbody/:exerciseId(\d+)">
+                    <ExerciseUpperPictureDetail />
+                </Route>
+
                 <Route exact path="/exercises/lowerbody">
                     <ExerciseLowerBodyDetail />
                 </Route>
 
+                <Route exact path="/exercises/lowerbody/:exerciseId(\d+)">
+                    <ExerciseLowerPictureDetail />
+                </Route>
+
                 <Route exact path="/exercises/core">
                     <ExerciseCoreDetail />
+                </Route>
+
+                <Route exact path="/exercises/core/:exerciseId(\d+)">
+                    <ExerciseCorePictureDetail />
                 </Route>
 
                 <Route exact path="/exercises/maxrepchart">

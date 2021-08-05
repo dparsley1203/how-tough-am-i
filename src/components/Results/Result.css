@@ -1,4 +1,4 @@
-table.GeneratedTable {
+/* table.GeneratedTable {
     width: 25%;
     background-color: #ffffff;
     border-collapse: collapse;
@@ -19,14 +19,14 @@ table.GeneratedTable {
   
   table.GeneratedTable thead {
     background-color: #1378fb;
-  }
+  } */
 
-  .total {
-      background-color: yellow;
+#total {
+      background-color: rgb(238, 238, 4);
   }
 
   .myButton {
-    background-color: #4CAF50; /* Green */
+    background-color: #009879;; /* Green */
     color: white;
     padding: 10px 10px;
     text-align: center;
@@ -37,7 +37,7 @@ table.GeneratedTable {
   }
 
   .addButton {
-    background-color: #4CAF50; /* Green */
+    background-color: #009879;; /* Green */
     color: white;
     padding: 10px 10px;
     text-align: center;
@@ -48,10 +48,54 @@ table.GeneratedTable {
 
 body {
   /* background-image: url(../Pictures/math1.png); */
-  background-color: rgb(149, 150, 153);
+  background-color: rgb(162, 162, 165);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-blend-mode: overlay;
 }
 
+.styled-table {
+  width: 25%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  /* min-width: 400px; */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  float: left;
+  margin: 1em;
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #f8f5f5;
+}
+
+.styled-table tbody tr:nth-of-type(odd) {
+  background-color: #d9dfec;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #c0c9dd;
+}
+
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}

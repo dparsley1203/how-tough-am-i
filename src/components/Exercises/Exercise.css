@@ -1,3 +1,32 @@
 .exercise__homepage {
     margin-left: 2em;
 }
+
+.exercise {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2em;
+}
+
+.img img:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+}
+
+.exercise__title {
+    margin-left: 2em;
+    color: rgb(4, 82, 110);
+}
+
+.exercise__homepage {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    padding: 1px;
+    font-family: 'Raleway';
+    font-weight: 100;
+    position: relative;
+    
+}

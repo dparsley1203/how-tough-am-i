@@ -16,21 +16,11 @@ export const ExerciseDetail = () => {
         })
     }, [])
 
-    // const filterExercises = exercises.filter(exercise => {
-    //     return exercise.exerciseTypeId === 1
-
-    // })
-
-    // const upper = filterExercises.map(exercise => {
-    //     return exercise.title
-    // })
-
-    // console.log(filterExercises)
     return (
         <>
         <section>
-            <div>The exercise tips below will focus on building upper body strength</div>
-            <div>
+            <h3 className="exercise__title">Click on an image below to learn more about the exercise</h3><br></br>
+            <div className="exercise">
                 {
                     
                     exercises.filter(exercise => {

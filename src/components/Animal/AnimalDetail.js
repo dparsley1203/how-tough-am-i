@@ -49,8 +49,6 @@ export const AnimalDetail = () => {
     const percentTwo = Math.max(...removeNan) - animalPFP
     const AnimalPercentWeaker = (percentTwo / animalPFP) * 100
 
-    console.log(AnimalPercentStronger)
-    console.log(AnimalPercentWeaker)
     
     let winnerLoser
     if (animalPFP > Math.max(...removeNan)) {
