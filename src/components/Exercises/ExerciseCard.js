@@ -6,9 +6,13 @@ export const ExerciseCard = ({ exercise }) => {
     return (
 
         <section>
-            <div>Title: {exercise.title}</div>
-            <div>Description: {exercise.description}</div>
-            <br></br>
+
+            <Link to={`/exercises/upperbody/${exercise.id}`}>
+                
+                <div className="img">
+                    <img src={exercise.image} height="250px" width="250px" />
+                </div>
+            </Link>
 
         </section>
     )

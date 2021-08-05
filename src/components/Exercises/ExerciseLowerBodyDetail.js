@@ -16,8 +16,8 @@ export const ExerciseLowerBodyDetail = () => {
     return (
         <>
         <section>
-            <div>hello</div>
-            <div>
+            <div>Click on a picture below to learn more about the exercise</div><br></br>
+            <div className="exercise">
                 {
                     
                     exercises.filter(exercise => {
