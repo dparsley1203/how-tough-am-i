@@ -1,9 +1,9 @@
 .note__card {
 
-    background-color: #ddffdd;
-    border-left: 6px solid #04AA6D;
-    margin: 12px 12px;
-    padding: 4px 12px;
+    background-color: #c5d1ec;
+    border-left: 6px solid #2f6df3;
+    margin: 10px 12px;
+    padding: 4px 4px;
     min-height: 3em;
       
 }
@@ -12,10 +12,17 @@
     justify-content: flex-end;
     display: flex;
     float: right;
+    background-color: #db6a6a; /* Green */
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
 }
 
 .addButton {
     margin: 12px 12px 0px 12px;
+    
 }
 
 .title {

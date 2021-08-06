@@ -22,11 +22,11 @@
   } */
 
 #total {
-      background-color: rgb(238, 238, 4);
+      background-color: rgb(221, 157, 73);
   }
 
   .myButton {
-    background-color: #009879;; /* Green */
+    background-color: #db6a6a;; /* Green */
     color: white;
     padding: 10px 10px;
     text-align: center;
@@ -37,7 +37,7 @@
   }
 
   .addButton {
-    background-color: #009879;; /* Green */
+    background-color: #db6a6a;; /* Green */
     color: white;
     padding: 10px 10px;
     text-align: center;
@@ -68,7 +68,7 @@ body {
 }
 
 .styled-table thead tr {
-  background-color: #009879;
+  background-color: #36a790;
   color: #ffffff;
   text-align: left;
 }
@@ -92,7 +92,7 @@ body {
 
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 0px solid #f2faf8;
 }
 
 .styled-table tbody tr.active-row {

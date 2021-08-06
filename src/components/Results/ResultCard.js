@@ -64,8 +64,8 @@ export const ResultCard = ({ result }) => {
                         <td>{result.powerClean}<font size="1">lbs</font></td>
                         </tr>
                         <tr id="total">
-                        <td>Body Weight/Lifts</td>
-                        <td>{calculated}<font size="1">lbs</font></td>
+                        <td>Lifts/Body Weight</td>
+                        <td>{calculated}<font size="1">p4p</font></td>
                         </tr>
                     </tbody>
                     <button onClick={() => {
