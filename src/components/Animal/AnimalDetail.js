@@ -89,10 +89,10 @@ export const AnimalDetail = () => {
 
     return (
         <section>
-            <h3 className="animal__name">Name: {animal.name}</h3>
-            <div className="animal__weight">Weight: {animal.animalWeight}lbs</div>
-            <div className="animal__location">Lifting Strength: {animal.animalStrength}lbs</div>
-            <div className="animal__location">The {animal.name}'s' {animalPFP.toFixed(2)} vs Yours {Math.max(...removeNan)}</div>
+            <h2 className="animal__name">Name: {animal.name}</h2>
+            <div className="animal__weight">Weight: {animal.animalWeight}lbs</div><br></br>
+            <div className="animal__location">Lifting Strength: {animal.animalStrength}lbs</div><br></br>
+            <div className="animal__location">The {animal.name}'s Strength {animalPFP.toFixed(2)} vs Yours {Math.max(...removeNan)}</div>
             <div>{winnerLoser}</div>
         </section>
     )

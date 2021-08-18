@@ -60,19 +60,20 @@ export const ResultForm = () => {
         } else {
 
             const userId = parseInt(localStorage.getItem("tough_customer"))
-                addResult({
-                    userId: userId,
-                    userWeight: parseInt(result.userWeight),
-                    benchPress: parseInt(result.benchPress),
-                    squat: parseInt(result.squat),
-                    deadLift: parseInt(result.deadLift),
-                    powerClean: parseInt(result.powerClean),
-                    timeStamp: Date.now()
+            
+            addResult({
+                userId: userId,
+                userWeight: parseInt(result.userWeight),
+                benchPress: parseInt(result.benchPress),
+                squat: parseInt(result.squat),
+                deadLift: parseInt(result.deadLift),
+                powerClean: parseInt(result.powerClean),
+                timeStamp: Date.now()
             })
             .then(()=> history.push("/results"))
-            }
-        }    
-    }
+        }
+    }    
+}
 
     useEffect(() => {
         getResults()
