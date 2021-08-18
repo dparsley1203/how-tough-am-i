@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { ResultContext } from "./ResultProvider"
-
+import Swal from "sweetalert2"
 
 
 export const ResultForm = () => {
@@ -9,12 +9,12 @@ export const ResultForm = () => {
 
     const [result, setResult] = useState({
         userId: 0,
-        userWeight: 0,
-        benchPress: 0,
-        squat: 0,
-        deadLift: 0,
-        powerClean: 0,
-        timeStamp: 0
+        userWeight: "",
+        benchPress: "",
+        squat: "",
+        deadLift: "",
+        powerClean: "",
+        timeStamp: ""
     })
 
     const history = useHistory()
@@ -30,6 +30,17 @@ export const ResultForm = () => {
     const saveResultClick = (event) => {
         event.preventDefault()
         
+        if (result.userWeight === 0 || result.benchPress === 0 || result.squat === 0 || result.deadLift === 0 || result.powerClean === 0 
+            || result.userWeight === "" || result.benchPress === "" || result.squat === "" || result.deadLift === "" || result.powerClean === ""
+            ) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please ensure all fields are filled out',
+              })
+            
+
+        } else {
 
         setIsLoading(true)
         if (resultId) {
@@ -49,18 +60,20 @@ export const ResultForm = () => {
         } else {
 
             const userId = parseInt(localStorage.getItem("tough_customer"))
-                addResult({
-                    userId: userId,
-                    userWeight: parseInt(result.userWeight),
-                    benchPress: parseInt(result.benchPress),
-                    squat: parseInt(result.squat),
-                    deadLift: parseInt(result.deadLift),
-                    powerClean: parseInt(result.powerClean),
-                    timeStamp: Date.now()
+            
+            addResult({
+                userId: userId,
+                userWeight: parseInt(result.userWeight),
+                benchPress: parseInt(result.benchPress),
+                squat: parseInt(result.squat),
+                deadLift: parseInt(result.deadLift),
+                powerClean: parseInt(result.powerClean),
+                timeStamp: Date.now()
             })
             .then(()=> history.push("/results"))
-            }
-    }
+        }
+    }    
+}
 
     useEffect(() => {
         getResults()
@@ -100,7 +113,7 @@ export const ResultForm = () => {
                 <div className="form-group">
                     <label htmlFor="benchPress">Squat</label>
                     <input type="text" id="squat" required autoFocus className="form-control" 
-                    placeholder="Bench Press" value={result.squat} onChange={formInputValue}></input>
+                    placeholder="Squat" value={result.squat} onChange={formInputValue}></input>
                 </div>
             </fieldset>
             <fieldset>

@@ -19,8 +19,8 @@ export const ExerciseCorePictureDetail = () => {
     return (
         <section>
             
-        <div>Title: {exercise.title}</div>
-        <div>Description: {exercise.description}</div>
+        <h2>Title: {exercise.title}</h2>
+        <h2>Description: {exercise.description}</h2>
 
         <br></br>
 

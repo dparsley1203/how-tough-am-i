@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from "react"
 import { NoteContext } from "./NoteProvider"
 import { NoteCard } from "./NoteCard"
-import { useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import "./Note.css"
+import logo from "../Pictures/logo.png"
+import Swal from "sweetalert2"
 
 export const NoteList = () => {
 
@@ -14,6 +16,9 @@ export const NoteList = () => {
 
     return (
         <div>
+            <Link onClick={() => {Swal.fire("Use the website to find out!")}}>
+                <img src={logo} height="120px" width="120px" />
+            </Link>
             <h2 className="title">Daily Notes</h2>
             <button className="addButton" onClick={()=>{history.push("/notes/create")}}>Add new Note</button>
             <div className="note">

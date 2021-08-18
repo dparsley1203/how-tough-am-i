@@ -10,10 +10,12 @@ export const ResultList = () => {
     const { results, getResults } = useContext(ResultContext)
     const history = useHistory()
 
+    
     useEffect(() => {
         getResults()
     }, [])
-
+    
+    
     return (
         <div className="results">
             <h2>My Results Page</h2>
@@ -21,6 +23,7 @@ export const ResultList = () => {
             <div className="result">
                 {
                     results.filter((result) => {
+                        
                         return parseInt(localStorage.getItem("tough_customer")) === result.userId
                     }).map(result => {
 

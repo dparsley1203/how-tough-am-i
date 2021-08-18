@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import bear from "../Pictures/bear.jpg"
-import toad from "../Pictures/toad.jpg"
+
 
 export const AnimalCard = ({ animal }) => {
 
